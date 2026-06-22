@@ -385,38 +385,40 @@ flowchart TB
 
 ## 🗂 Content Model
 
-Typed content modules keep the UI dumb and the data authoritative.
+Typed content modules keep the UI dumb and the data authoritative. **Zod schemas
+in `content/schema.ts` are the single source of truth** — TS types are inferred
+from them (`content/types.ts`), and every collection is validated at build time,
+so malformed content fails the build instead of shipping.
 
 ```ts
-// content/types.ts (illustrative)
-export type Experience = {
-  company: string;
-  role: string;
-  location?: string;
-  start: string; // ISO month, e.g. "2025-09"
-  end: string | "present";
-  highlights: string[]; // impact-oriented bullet points
-  stack: string[]; // technologies used
-};
+// content/schema.ts — schemas drive both validation and types
+export const experienceSchema = z.object({
+  company: z.string().min(1),
+  role: z.string().min(1),
+  location: z.string().optional(),
+  start: isoMonth, // "2025-09"
+  end: z.union([isoMonth, z.literal("present")]),
+  highlights: z.array(z.string().min(1)).min(1),
+  stack: z.array(z.string().min(1)),
+});
+// projectSchema (slug/title/summary/domain/stack/links/featured) and
+// skillGroupSchema (category/items) defined alongside.
 
-export type Project = {
-  slug: string;
-  title: string;
-  summary: string;
-  domain: ("ai" | "saas" | "real-time" | "data" | "frontend")[];
-  stack: string[];
-  links?: { demo?: string; repo?: string };
-  featured?: boolean;
-  // long-form body lives in content/projects/<slug>.mdx
-};
-
-export type SkillGroup = {
-  category: "Core Development" | "AI & Data" | "Cloud & Automation" | "Methodologies";
-  items: string[];
-};
+// content/types.ts — inferred, no drift
+export type Experience = z.infer<typeof experienceSchema>;
 ```
 
-The initial dataset is seeded from the CV (Planisphere Systems, Forvis Mazars, Acoba, Open Eyes Consulting; skills across TypeScript/JS, Python, Next.js, LLM APIs, AWS/Azure, Docker/K8s, CI/CD).
+Collections live in `content/{experience,skills,projects}.ts`, each wrapped in
+`validateCollection(schema, data, label)` which parses at module load:
+
+```ts
+// content/experience.ts
+export const experience = validateCollection(experienceSchema, [...], "experience");
+```
+
+The dataset is seeded from the CV (Planisphere Systems, Forvis Mazars, Acoba,
+Open Eyes Consulting; skills across TypeScript/JS, Python, Next.js, LLM APIs,
+AWS/Azure, Docker/K8s, CI/CD) — see the seeding issues (#8–#10).
 
 ---
 
