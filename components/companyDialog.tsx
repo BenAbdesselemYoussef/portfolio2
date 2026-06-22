@@ -41,17 +41,19 @@ export function CompanyDialog({ company, logo, description, website }: CompanyDi
       </DialogTrigger>
 
       <DialogContent className="sm:max-w-lg">
-        <div className="flex items-stretch gap-5">
+        <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-stretch">
           {logo ? (
-            <div className="bg-card border-border text-foreground grid size-28 shrink-0 place-items-center rounded-xl border">
-              <CompanyLogo src={logo} label={company} className="size-20" />
+            <div className="bg-card border-border text-foreground grid size-24 shrink-0 place-items-center rounded-xl border sm:size-28">
+              <CompanyLogo src={logo} label={company} className="size-16 sm:size-20" />
             </div>
           ) : null}
 
-          {logo ? <div className="bg-border w-px self-stretch" aria-hidden /> : null}
+          {logo ? (
+            <div className="bg-border h-px w-full self-stretch sm:h-auto sm:w-px" aria-hidden />
+          ) : null}
 
           <div className="min-w-0 flex-1">
-            <DialogHeader className="text-start">
+            <DialogHeader className="text-center sm:text-start">
               <DialogTitle>{company}</DialogTitle>
               {description ? <DialogDescription>{description}</DialogDescription> : null}
             </DialogHeader>
