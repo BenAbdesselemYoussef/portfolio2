@@ -8,8 +8,7 @@ export const siteConfig = {
     "https://github.com/BenAbdesselemYoussef/portfolio2/blob/main/resume/Youssef_Ben_Abdesselem_Resume_2026-04-23.pdf",
   links: {
     github: "https://github.com/BenAbdesselemYoussef",
-    // TODO(#5): confirm the exact LinkedIn vanity URL.
-    linkedin: "https://www.linkedin.com/in/youssefbenabdesselem",
+    linkedin: "https://www.linkedin.com/in/youssef-ben-abdesselem-3249a519a/",
   },
 } as const;
 
