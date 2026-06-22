@@ -1,6 +1,6 @@
 "use client";
 
-import { Languages } from "lucide-react";
+import { Check, Languages } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { usePathname } from "@/i18n/navigation";
 import { localeLabels, routing } from "@/i18n/routing";
+import { cn } from "@/lib/utils";
 
 export function LanguageSwitcher() {
   const t = useTranslations("Language");
@@ -32,13 +33,23 @@ export function LanguageSwitcher() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        {routing.locales.map((locale) => (
-          <DropdownMenuItem key={locale} asChild disabled={locale === activeLocale}>
-            <a href={`/${locale}${suffix}`} hrefLang={locale} lang={locale}>
-              {localeLabels[locale]}
-            </a>
-          </DropdownMenuItem>
-        ))}
+        {routing.locales.map((locale) => {
+          const isActive = locale === activeLocale;
+          return (
+            <DropdownMenuItem key={locale} asChild>
+              <a
+                href={`/${locale}${suffix}`}
+                hrefLang={locale}
+                lang={locale}
+                aria-current={isActive ? "true" : undefined}
+                className={cn("justify-between", isActive && "text-brand font-medium")}
+              >
+                {localeLabels[locale]}
+                {isActive && <Check className="size-4" />}
+              </a>
+            </DropdownMenuItem>
+          );
+        })}
       </DropdownMenuContent>
     </DropdownMenu>
   );
