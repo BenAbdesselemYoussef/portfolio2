@@ -35,9 +35,13 @@
     "aboutEyebrow": "02 / À propos",
     "aboutTitle": "Parcours",
     "aboutBody": "Quatre ans entre le streaming, l'audit et les produits d'IA. L'histoire complète arrive ici.",
-    "contactEyebrow": "03 / Contact",
+    "contactEyebrow": "04 / Contact",
     "contactTitle": "Me contacter",
     "contactBody": "Un formulaire de contact avec envoi réel arrive bientôt. En attendant, les liens du pied de page fonctionnent."
+  },
+  "Skills": {
+    "eyebrow": "03 / Compétences",
+    "title": "Compétences"
   },
   "Experience": {
     "eyebrow": "02 / Expérience",
