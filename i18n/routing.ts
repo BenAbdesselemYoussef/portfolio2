@@ -18,3 +18,8 @@ export const localeLabels: Record<Locale, string> = {
 export function getDirection(locale: string): "rtl" | "ltr" {
   return locale === "ar" ? "rtl" : "ltr";
 }
+
+// Resolve a per-locale text record for the active locale (falls back to English).
+export function localize(text: Record<Locale, string>, locale: string): string {
+  return text[locale as Locale] ?? text.en;
+}
