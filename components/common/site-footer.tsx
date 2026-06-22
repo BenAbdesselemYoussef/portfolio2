@@ -13,15 +13,16 @@ const socials = [
 
 export function SiteFooter() {
   const t = useTranslations("Footer");
+  const tMeta = useTranslations("Metadata");
   const year = new Date().getFullYear();
 
   return (
     <footer className="border-border/60 border-t">
       <div className="mx-auto flex w-full max-w-5xl flex-col items-center justify-between gap-6 px-6 py-10 sm:flex-row">
         <div>
-          <p className="text-sm font-medium">{siteConfig.name}</p>
+          <p className="text-sm font-medium">{tMeta("name")}</p>
           <p className="text-muted-foreground font-mono text-xs">
-            {t("role")} · © {year}
+            {t("role")} · <bdi>© {year}</bdi>
           </p>
         </div>
 

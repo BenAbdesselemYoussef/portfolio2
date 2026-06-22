@@ -9,6 +9,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const { locale } = await params;
   setRequestLocale(locale);
 
+  const tMeta = await getTranslations("Metadata");
   const t = await getTranslations("Hero");
   const ts = await getTranslations("Sections");
 
@@ -21,7 +22,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </p>
 
         <h1 className="mt-5 text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
-          Youssef Ben Abdesselem
+          {tMeta("name")}
         </h1>
 
         <p className="text-muted-foreground mt-5 max-w-xl text-lg leading-relaxed text-pretty">
