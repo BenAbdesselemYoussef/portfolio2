@@ -39,6 +39,12 @@
     "contactTitle": "Me contacter",
     "contactBody": "Un formulaire de contact avec envoi réel arrive bientôt. En attendant, les liens du pied de page fonctionnent."
   },
+  "Experience": {
+    "eyebrow": "02 / Expérience",
+    "title": "Expérience",
+    "present": "Présent",
+    "visitWebsite": "Visiter le site"
+  },
   "Footer": {
     "role": "Développeur Full-Stack",
     "email": "E-mail",

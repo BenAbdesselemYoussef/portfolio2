@@ -39,6 +39,12 @@
     "contactTitle": "Get in Touch",
     "contactBody": "A contact form with real delivery is coming. For now, the footer links work."
   },
+  "Experience": {
+    "eyebrow": "02 / Experience",
+    "title": "Experience",
+    "present": "Present",
+    "visitWebsite": "Visit website"
+  },
   "Footer": {
     "role": "Full-Stack Developer",
     "email": "Email",

@@ -1,0 +1,70 @@
+import { useLocale, useTranslations } from "next-intl";
+
+import { CompanyDialog } from "@/components/companyDialog";
+import { experience } from "@/content/experience";
+import { localize } from "@/i18n/routing";
+
+function formatMonth(iso: string, locale: string): string {
+  const [year, month] = iso.split("-").map(Number);
+  return new Intl.DateTimeFormat(locale, { month: "short", year: "numeric" }).format(
+    new Date(year, month - 1),
+  );
+}
+
+export function ExperienceTimeline() {
+  const t = useTranslations("Experience");
+  const locale = useLocale();
+
+  return (
+    <section id="about" className="border-border/60 scroll-mt-16 border-t py-24">
+      <p className="text-muted-foreground font-mono text-xs tracking-[0.2em] uppercase">
+        {t("eyebrow")}
+      </p>
+      <h2 className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">{t("title")}</h2>
+
+      <ol className="mt-10 space-y-10">
+        {experience.map((job) => (
+          <li key={`${job.company}-${job.start}`} className="flex gap-4 sm:gap-5">
+            <CompanyDialog
+              company={job.company}
+              logo={job.logo}
+              description={job.description ? localize(job.description, locale) : undefined}
+              website={job.website}
+            />
+
+            <div className="min-w-0 flex-1">
+              <p className="text-muted-foreground font-mono text-xs">
+                {formatMonth(job.start, locale)} –{" "}
+                {job.end === "present" ? t("present") : formatMonth(job.end, locale)}
+              </p>
+
+              <h3 className="mt-1 text-base font-semibold">
+                {localize(job.role, locale)}
+                <span className="text-muted-foreground font-normal"> · {job.company}</span>
+              </h3>
+              {job.location ? (
+                <p className="text-muted-foreground text-sm">{localize(job.location, locale)}</p>
+              ) : null}
+
+              <ul className="text-muted-foreground marker:text-brand/50 mt-3 list-disc space-y-1.5 ps-5 text-sm">
+                {job.highlights.map((highlight) => (
+                  <li key={highlight.en} className="text-pretty">
+                    {localize(highlight, locale)}
+                  </li>
+                ))}
+              </ul>
+
+              <ul className="text-muted-foreground mt-3 flex flex-wrap gap-1.5 font-mono text-xs">
+                {job.stack.map((item) => (
+                  <li key={item} className="border-border rounded border px-1.5 py-0.5">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
+}
