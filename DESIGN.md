@@ -70,3 +70,13 @@ is grayscale. If two things are blue, one of them is probably wrong.
   list of composed sections.
 - This keeps pages glanceable, sections reusable/testable, and content work
   additive: build a section component, drop it into the shell.
+
+## Code conventions
+
+- **Filenames:** authored React component files (`.tsx`) use **camelCase**
+  (`siteHeader.tsx`, `themeToggle.tsx`). The exported component stays PascalCase.
+  - Exception: `components/ui/*` (shadcn) stays kebab-case — the CLI regenerates
+    those names, so renaming would break `shadcn add`.
+- **No inline types/constants** in components. Define types in `lib/types.ts` and
+  constants in `lib/constants.ts` (site identity in `lib/site.ts`, fonts in
+  `lib/fonts.ts`), then import them. Local render-scoped variables are fine.
