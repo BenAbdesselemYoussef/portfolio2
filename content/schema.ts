@@ -11,6 +11,7 @@ export const localizedTextSchema = z.object({
 
 export const experienceSchema = z.object({
   company: z.string().min(1), // proper noun — not localized
+  logo: z.string().optional(), // path to a monochrome SVG under /public
   role: localizedTextSchema,
   location: localizedTextSchema.optional(),
   start: isoMonth,

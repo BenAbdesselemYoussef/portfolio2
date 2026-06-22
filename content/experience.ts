@@ -7,6 +7,7 @@ export const experience = validateCollection(
   [
     {
       company: "Planisphere Systems",
+      logo: "/logos/planisphere.svg",
       role: {
         en: "Full-Stack Developer",
         fr: "Développeur Full-Stack",
@@ -54,6 +55,7 @@ export const experience = validateCollection(
     },
     {
       company: "Forvis Mazars",
+      logo: "/logos/forvis-mazars.svg",
       role: {
         en: "Full-Stack Developer",
         fr: "Développeur Full-Stack",
@@ -105,6 +107,7 @@ export const experience = validateCollection(
     },
     {
       company: "Acoba",
+      logo: "/logos/acoba.svg",
       role: {
         en: "Frontend Web Developer",
         fr: "Développeur Web Frontend",
@@ -157,6 +160,7 @@ export const experience = validateCollection(
     },
     {
       company: "Open Eyes Consulting",
+      logo: "/logos/open-eyes.svg",
       role: {
         en: "Full-Stack Developer",
         fr: "Développeur Full-Stack",

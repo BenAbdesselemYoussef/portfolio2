@@ -1,5 +1,6 @@
 import { useLocale, useTranslations } from "next-intl";
 
+import { CompanyLogo } from "@/components/companyLogo";
 import { experience } from "@/content/experience";
 import { localize } from "@/i18n/routing";
 
@@ -21,39 +22,47 @@ export function ExperienceTimeline() {
       </p>
       <h2 className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">{t("title")}</h2>
 
-      <ol className="border-border/60 mt-10 space-y-12 border-s ps-6">
+      <ol className="mt-10 space-y-10">
         {experience.map((job) => (
-          <li key={`${job.company}-${job.start}`} className="relative">
-            <span className="bg-brand ring-background absolute -start-[1.7rem] top-1.5 size-2 rounded-full ring-4" />
+          <li key={`${job.company}-${job.start}`} className="flex gap-4 sm:gap-5">
+            <div className="bg-card border-border text-foreground/75 grid size-12 shrink-0 place-items-center rounded-lg border">
+              {job.logo ? (
+                <CompanyLogo src={job.logo} label={job.company} className="size-7" />
+              ) : (
+                <span className="bg-brand size-2 rounded-full" />
+              )}
+            </div>
 
-            <p className="text-muted-foreground font-mono text-xs">
-              {formatMonth(job.start, locale)} –{" "}
-              {job.end === "present" ? t("present") : formatMonth(job.end, locale)}
-            </p>
+            <div className="min-w-0 flex-1">
+              <p className="text-muted-foreground font-mono text-xs">
+                {formatMonth(job.start, locale)} –{" "}
+                {job.end === "present" ? t("present") : formatMonth(job.end, locale)}
+              </p>
 
-            <h3 className="mt-1 text-base font-semibold">
-              {localize(job.role, locale)}
-              <span className="text-muted-foreground font-normal"> · {job.company}</span>
-            </h3>
-            {job.location ? (
-              <p className="text-muted-foreground text-sm">{localize(job.location, locale)}</p>
-            ) : null}
+              <h3 className="mt-1 text-base font-semibold">
+                {localize(job.role, locale)}
+                <span className="text-muted-foreground font-normal"> · {job.company}</span>
+              </h3>
+              {job.location ? (
+                <p className="text-muted-foreground text-sm">{localize(job.location, locale)}</p>
+              ) : null}
 
-            <ul className="text-muted-foreground marker:text-brand/50 mt-3 list-disc space-y-1.5 ps-5 text-sm">
-              {job.highlights.map((highlight) => (
-                <li key={highlight.en} className="text-pretty">
-                  {localize(highlight, locale)}
-                </li>
-              ))}
-            </ul>
+              <ul className="text-muted-foreground marker:text-brand/50 mt-3 list-disc space-y-1.5 ps-5 text-sm">
+                {job.highlights.map((highlight) => (
+                  <li key={highlight.en} className="text-pretty">
+                    {localize(highlight, locale)}
+                  </li>
+                ))}
+              </ul>
 
-            <ul className="text-muted-foreground mt-3 flex flex-wrap gap-1.5 font-mono text-xs">
-              {job.stack.map((item) => (
-                <li key={item} className="border-border rounded border px-1.5 py-0.5">
-                  {item}
-                </li>
-              ))}
-            </ul>
+              <ul className="text-muted-foreground mt-3 flex flex-wrap gap-1.5 font-mono text-xs">
+                {job.stack.map((item) => (
+                  <li key={item} className="border-border rounded border px-1.5 py-0.5">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </li>
         ))}
       </ol>
