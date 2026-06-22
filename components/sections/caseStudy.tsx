@@ -2,7 +2,7 @@ import { ArrowLeft, ExternalLink } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
 import { GitHubIcon } from "@/components/icons";
-import { ProjectImage } from "@/components/projectImage";
+import { ScreenshotFrame } from "@/components/screenshotFrame";
 import { Button } from "@/components/ui/button";
 import type { Project } from "@/content/types";
 import { Link } from "@/i18n/navigation";
@@ -26,11 +26,11 @@ export function CaseStudy({ project }: { project: Project }) {
         {t("back")}
       </Link>
 
-      <ProjectImage
+      <ScreenshotFrame
         src={project.image}
-        title={localize(project.title, locale)}
+        alt={localize(project.title, locale)}
         sizes="(min-width: 768px) 768px, 100vw"
-        className="border-border/60 mt-6 aspect-[2/1] w-full rounded-xl border"
+        className="mt-6 w-full"
       />
 
       <header className="mt-8">
@@ -104,6 +104,29 @@ export function CaseStudy({ project }: { project: Project }) {
           <p className="text-pretty">{localize(study.outcome, locale)}</p>
         </Section>
       </div>
+
+      {study.gallery && study.gallery.length > 0 ? (
+        <section className="mt-12">
+          <h2 className="text-muted-foreground font-mono text-xs tracking-[0.2em] uppercase">
+            {t("walkthrough")}
+          </h2>
+          <div className="mt-5 space-y-8">
+            {study.gallery.map((shot) => (
+              <figure key={shot.image}>
+                <ScreenshotFrame
+                  src={shot.image}
+                  alt={localize(shot.caption, locale)}
+                  sizes="(min-width: 768px) 768px, 100vw"
+                  className="w-full"
+                />
+                <figcaption className="text-muted-foreground mt-3 text-sm text-pretty">
+                  {localize(shot.caption, locale)}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      ) : null}
     </article>
   );
 }

@@ -59,7 +59,8 @@
     "problem": "Problem",
     "approach": "Approach",
     "architecture": "Architecture",
-    "outcome": "Outcome"
+    "outcome": "Outcome",
+    "walkthrough": "Walkthrough"
   },
   "Skills": {
     "eyebrow": "03 / Skills",
