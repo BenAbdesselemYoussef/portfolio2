@@ -1,6 +1,7 @@
 import type { z } from "zod";
 
 import type {
+  caseStudySchema,
   experienceSchema,
   localizedTextSchema,
   projectDomainSchema,
@@ -13,4 +14,5 @@ export type LocalizedText = z.infer<typeof localizedTextSchema>;
 export type Experience = z.infer<typeof experienceSchema>;
 export type Project = z.infer<typeof projectSchema>;
 export type ProjectDomain = z.infer<typeof projectDomainSchema>;
+export type CaseStudy = z.infer<typeof caseStudySchema>;
 export type SkillGroup = z.infer<typeof skillGroupSchema>;
