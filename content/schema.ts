@@ -36,6 +36,7 @@ export const projectSchema = z.object({
   slug: z.string().regex(/^[a-z0-9-]+$/, "Lowercase, dash-separated slug"),
   title: localizedTextSchema,
   summary: localizedTextSchema,
+  image: z.string().optional(), // path to a cover image under /public (e.g. /projects/slug.png)
   domain: z.array(projectDomainSchema).min(1),
   stack: z.array(z.string().min(1)),
   links: z.object({ demo: z.url().optional(), repo: z.url().optional() }).optional(),

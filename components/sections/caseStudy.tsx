@@ -2,6 +2,7 @@ import { ArrowLeft, ExternalLink } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
 import { GitHubIcon } from "@/components/icons";
+import { ProjectImage } from "@/components/projectImage";
 import { Button } from "@/components/ui/button";
 import type { Project } from "@/content/types";
 import { Link } from "@/i18n/navigation";
@@ -25,7 +26,14 @@ export function CaseStudy({ project }: { project: Project }) {
         {t("back")}
       </Link>
 
-      <header className="mt-6">
+      <ProjectImage
+        src={project.image}
+        title={localize(project.title, locale)}
+        sizes="(min-width: 768px) 768px, 100vw"
+        className="border-border/60 mt-6 aspect-[2/1] w-full rounded-xl border"
+      />
+
+      <header className="mt-8">
         <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
           {localize(project.title, locale)}
         </h1>

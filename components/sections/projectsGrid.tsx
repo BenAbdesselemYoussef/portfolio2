@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 
 import { GitHubIcon } from "@/components/icons";
+import { ProjectImage } from "@/components/projectImage";
 import { Button } from "@/components/ui/button";
 import { projects } from "@/content/projects";
 import type { ProjectDomain } from "@/content/types";
@@ -59,50 +60,59 @@ export function ProjectsGrid() {
         {filtered.map((project) => (
           <article
             key={project.slug}
-            className="border-border/60 bg-card/40 flex h-full flex-col rounded-xl border p-5"
+            className="border-border/60 bg-card/40 flex h-full flex-col overflow-hidden rounded-xl border"
           >
-            <h3 className="text-base font-semibold">{localize(project.title, locale)}</h3>
+            <ProjectImage
+              src={project.image}
+              title={localize(project.title, locale)}
+              sizes="(min-width: 640px) 50vw, 100vw"
+              className="border-border/60 aspect-video w-full border-b"
+            />
 
-            <ul className="mt-2 flex flex-wrap gap-1.5">
-              {project.domain.map((d) => (
-                <li
-                  key={d}
-                  className="text-brand/90 bg-brand/10 rounded px-2 py-0.5 font-mono text-[0.7rem]"
-                >
-                  {t(`domains.${d}`)}
-                </li>
-              ))}
-            </ul>
+            <div className="flex flex-1 flex-col p-5">
+              <h3 className="text-base font-semibold">{localize(project.title, locale)}</h3>
 
-            <p className="text-muted-foreground mt-3 text-sm text-pretty">
-              {localize(project.summary, locale)}
-            </p>
+              <ul className="mt-2 flex flex-wrap gap-1.5">
+                {project.domain.map((d) => (
+                  <li
+                    key={d}
+                    className="text-brand/90 bg-brand/10 rounded px-2 py-0.5 font-mono text-[0.7rem]"
+                  >
+                    {t(`domains.${d}`)}
+                  </li>
+                ))}
+              </ul>
 
-            <ul className="text-muted-foreground mt-4 flex flex-wrap gap-1.5 font-mono text-xs">
-              {project.stack.map((item) => (
-                <li key={item} className="border-border rounded border px-1.5 py-0.5">
-                  {item}
-                </li>
-              ))}
-            </ul>
+              <p className="text-muted-foreground mt-3 text-sm text-pretty">
+                {localize(project.summary, locale)}
+              </p>
 
-            <div className="mt-auto flex flex-wrap items-center gap-3 pt-6">
-              {project.caseStudy ? (
-                <Button asChild size="sm">
-                  <Link href={`/projects/${project.slug}`}>
-                    {t("readCaseStudy")}
-                    <ArrowRight className="size-4 rtl:rotate-180" />
-                  </Link>
-                </Button>
-              ) : null}
-              {project.links?.repo ? (
-                <Button asChild variant="outline" size="sm">
-                  <a href={project.links.repo} target="_blank" rel="noopener noreferrer">
-                    <GitHubIcon className="size-4" />
-                    {t("viewRepo")}
-                  </a>
-                </Button>
-              ) : null}
+              <ul className="text-muted-foreground mt-4 flex flex-wrap gap-1.5 font-mono text-xs">
+                {project.stack.map((item) => (
+                  <li key={item} className="border-border rounded border px-1.5 py-0.5">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-auto flex flex-wrap items-center gap-3 pt-6">
+                {project.caseStudy ? (
+                  <Button asChild size="sm">
+                    <Link href={`/projects/${project.slug}`}>
+                      {t("readCaseStudy")}
+                      <ArrowRight className="size-4 rtl:rotate-180" />
+                    </Link>
+                  </Button>
+                ) : null}
+                {project.links?.repo ? (
+                  <Button asChild variant="outline" size="sm">
+                    <a href={project.links.repo} target="_blank" rel="noopener noreferrer">
+                      <GitHubIcon className="size-4" />
+                      {t("viewRepo")}
+                    </a>
+                  </Button>
+                ) : null}
+              </div>
             </div>
           </article>
         ))}
