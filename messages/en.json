@@ -39,6 +39,19 @@
     "contactTitle": "Get in Touch",
     "contactBody": "A contact form with real delivery is coming. For now, the footer links work."
   },
+  "Projects": {
+    "eyebrow": "01 / Work",
+    "title": "Selected Projects",
+    "filterAll": "All",
+    "viewRepo": "View code",
+    "domains": {
+      "ai": "AI",
+      "saas": "SaaS",
+      "real-time": "Real-time",
+      "data": "Data",
+      "frontend": "Frontend"
+    }
+  },
   "Skills": {
     "eyebrow": "03 / Skills",
     "title": "Skills"

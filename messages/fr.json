@@ -39,6 +39,19 @@
     "contactTitle": "Me contacter",
     "contactBody": "Un formulaire de contact avec envoi réel arrive bientôt. En attendant, les liens du pied de page fonctionnent."
   },
+  "Projects": {
+    "eyebrow": "01 / Projets",
+    "title": "Projets sélectionnés",
+    "filterAll": "Tous",
+    "viewRepo": "Voir le code",
+    "domains": {
+      "ai": "IA",
+      "saas": "SaaS",
+      "real-time": "Temps réel",
+      "data": "Données",
+      "frontend": "Frontend"
+    }
+  },
   "Skills": {
     "eyebrow": "03 / Compétences",
     "title": "Compétences"
