@@ -4,7 +4,7 @@
 
 **A fast, accessible, content-driven portfolio for a Full-Stack Engineer specializing in real-time, multi-tenant, and AI-powered systems.**
 
-[![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38BDF8?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![Deployed on Vercel](https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel)](https://vercel.com/)
@@ -81,7 +81,7 @@ Chosen to mirror the stack I work in daily and to keep the site **static-first, 
 ### Core
 | Layer | Choice | Rationale |
 | --- | --- | --- |
-| **Framework** | [Next.js 15](https://nextjs.org/) (App Router, RSC) | SEO + performance via Server Components and static generation; the framework I use most. |
+| **Framework** | [Next.js 16](https://nextjs.org/) (App Router, RSC, Turbopack) | SEO + performance via Server Components and static generation; the framework I use most. |
 | **Language** | [TypeScript 5](https://www.typescriptlang.org/) | End-to-end type safety from content to UI. |
 | **Styling** | [Tailwind CSS 4](https://tailwindcss.com/) | Utility-first, design-token driven, tiny production CSS. |
 | **UI primitives** | [shadcn/ui](https://ui.shadcn.com/) + [Radix UI](https://www.radix-ui.com/) | Accessible, unstyled primitives I own and can theme. |
