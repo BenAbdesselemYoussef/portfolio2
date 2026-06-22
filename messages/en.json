@@ -35,9 +35,13 @@
     "aboutEyebrow": "02 / About",
     "aboutTitle": "Background",
     "aboutBody": "Four years across streaming, audit, and AI products. The full story lands here next.",
-    "contactEyebrow": "03 / Contact",
+    "contactEyebrow": "04 / Contact",
     "contactTitle": "Get in Touch",
     "contactBody": "A contact form with real delivery is coming. For now, the footer links work."
+  },
+  "Skills": {
+    "eyebrow": "03 / Skills",
+    "title": "Skills"
   },
   "Experience": {
     "eyebrow": "02 / Experience",
