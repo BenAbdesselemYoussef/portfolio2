@@ -2,10 +2,32 @@ import { Button } from "@/components/ui/button";
 
 const stack = ["Next.js", "TypeScript", "Node.js", "Python", "LLMs", "AWS"];
 
+const placeholders = [
+  {
+    id: "work",
+    eyebrow: "01 / Work",
+    title: "Selected Projects",
+    body: "Case studies are on the way — real-time platforms, multi-tenant SaaS, and AI tooling.",
+  },
+  {
+    id: "about",
+    eyebrow: "02 / About",
+    title: "Background",
+    body: "Four years across streaming, audit, and AI products. The full story lands here next.",
+  },
+  {
+    id: "contact",
+    eyebrow: "03 / Contact",
+    title: "Get in Touch",
+    body: "A contact form with real delivery is coming. For now, the footer links work.",
+  },
+];
+
 export default function Home() {
   return (
-    <main className="flex flex-1 flex-col items-center justify-center px-6 py-24">
-      <div className="w-full max-w-2xl">
+    <main className="mx-auto w-full max-w-5xl px-6">
+      {/* Hero */}
+      <section className="flex min-h-[calc(100svh-4rem)] flex-col justify-center py-24">
         <p className="text-muted-foreground font-mono text-xs tracking-[0.2em] uppercase">
           Full-Stack Engineer · Tunisia
         </p>
@@ -21,9 +43,11 @@ export default function Home() {
         </p>
 
         <div className="mt-8 flex flex-wrap gap-3">
-          <Button size="lg">View Work</Button>
-          <Button size="lg" variant="outline">
-            Get in Touch
+          <Button size="lg" asChild>
+            <a href="#work">View Work</a>
+          </Button>
+          <Button size="lg" variant="outline" asChild>
+            <a href="#contact">Get in Touch</a>
           </Button>
         </div>
 
@@ -34,7 +58,24 @@ export default function Home() {
             </li>
           ))}
         </ul>
-      </div>
+      </section>
+
+      {/* Placeholder sections — filled in by issues #12–16 */}
+      {placeholders.map((section) => (
+        <section
+          key={section.id}
+          id={section.id}
+          className="border-border/60 scroll-mt-16 border-t py-24"
+        >
+          <p className="text-muted-foreground font-mono text-xs tracking-[0.2em] uppercase">
+            {section.eyebrow}
+          </p>
+          <h2 className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">
+            {section.title}
+          </h2>
+          <p className="text-muted-foreground mt-3 max-w-xl text-pretty">{section.body}</p>
+        </section>
+      ))}
     </main>
   );
 }
