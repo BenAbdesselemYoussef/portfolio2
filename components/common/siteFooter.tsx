@@ -1,15 +1,6 @@
-import { FileText, Mail } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import { GitHubIcon, LinkedInIcon } from "@/components/icons";
-import { siteConfig } from "@/lib/site";
-
-const socials = [
-  { key: "email", href: `mailto:${siteConfig.email}`, icon: Mail, external: false },
-  { key: "github", href: siteConfig.links.github, icon: GitHubIcon, external: true },
-  { key: "linkedin", href: siteConfig.links.linkedin, icon: LinkedInIcon, external: true },
-  { key: "resume", href: siteConfig.resumeHref, icon: FileText, external: true },
-] as const;
+import { socialLinks } from "@/lib/constants";
 
 export function SiteFooter() {
   const t = useTranslations("Footer");
@@ -27,7 +18,7 @@ export function SiteFooter() {
         </div>
 
         <nav className="flex items-center gap-1" aria-label={t("socials")}>
-          {socials.map(({ key, href, icon: Icon, external }) => {
+          {socialLinks.map(({ key, href, icon: Icon, external }) => {
             const label = t(key);
             return (
               <a

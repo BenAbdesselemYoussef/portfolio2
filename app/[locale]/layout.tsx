@@ -1,24 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import "../globals.css";
 
-import { SiteFooter } from "@/components/common/site-footer";
-import { SiteHeader } from "@/components/common/site-header";
-import { ThemeProvider } from "@/components/theme-provider";
+import { SiteFooter } from "@/components/common/siteFooter";
+import { SiteHeader } from "@/components/common/siteHeader";
+import { ThemeProvider } from "@/components/themeProvider";
+import { geistMono, geistSans } from "@/lib/fonts";
 import { getDirection, routing } from "@/i18n/routing";
-
-const geistSans = Geist({
-  variable: "--font-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-});
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
