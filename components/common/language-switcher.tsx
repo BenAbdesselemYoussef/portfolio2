@@ -10,14 +10,18 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { usePathname, useRouter } from "@/i18n/navigation";
+import { usePathname } from "@/i18n/navigation";
 import { localeLabels, routing } from "@/i18n/routing";
 
 export function LanguageSwitcher() {
   const t = useTranslations("Language");
   const activeLocale = useLocale();
-  const router = useRouter();
   const pathname = usePathname();
+
+  // Use a full navigation (plain anchor) rather than a soft client nav. Changing
+  // locale changes <html lang/dir>, which would otherwise re-render the theme
+  // script on the client (React 19 forbids client-rendered <script> tags).
+  const suffix = pathname === "/" ? "" : pathname;
 
   return (
     <DropdownMenu>
@@ -29,12 +33,10 @@ export function LanguageSwitcher() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         {routing.locales.map((locale) => (
-          <DropdownMenuItem
-            key={locale}
-            disabled={locale === activeLocale}
-            onClick={() => router.replace(pathname, { locale })}
-          >
-            {localeLabels[locale]}
+          <DropdownMenuItem key={locale} asChild disabled={locale === activeLocale}>
+            <a href={`/${locale}${suffix}`} hrefLang={locale} lang={locale}>
+              {localeLabels[locale]}
+            </a>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
