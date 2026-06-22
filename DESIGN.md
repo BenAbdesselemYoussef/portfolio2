@@ -60,3 +60,13 @@ is grayscale. If two things are blue, one of them is probably wrong.
   `pnpm dlx shadcn@latest add <component>`.
 - Compose app-specific UI in `components/`; keep `components/ui/` close to upstream.
 - Use the `cn()` helper (`lib/utils.ts`) for conditional classes.
+
+## Page composition
+
+- **Route files are thin shells.** A `page.tsx` only resolves the locale,
+  composes section components, and passes data — no inline markup or view logic.
+- Page sections live in `components/sections/` (e.g. `Hero`, the upcoming
+  `WorkSection`, `AboutSection`, `ContactSection`). A page should read as a short
+  list of composed sections.
+- This keeps pages glanceable, sections reusable/testable, and content work
+  additive: build a section component, drop it into the shell.
