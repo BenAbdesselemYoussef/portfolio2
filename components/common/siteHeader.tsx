@@ -16,7 +16,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { useActiveSection } from "@/hooks/use-active-section";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { getDirection } from "@/i18n/routing";
 import { sectionIds } from "@/lib/constants";
 import { siteConfig } from "@/lib/site";
@@ -28,6 +28,12 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const active = useActiveSection(sectionIds);
+  const pathname = usePathname();
+
+  // Section anchors scroll within the home page; from a sub-page (e.g. a case
+  // study) they need to navigate home first. usePathname() is locale-stripped.
+  const onHome = pathname === "/";
+  const sectionHref = (id: string) => (onHome ? `#${id}` : `/${locale}#${id}`);
 
   // Drawer enters from the inline-end side (flips for RTL).
   const sheetSide = getDirection(locale) === "rtl" ? "left" : "right";
@@ -61,7 +67,7 @@ export function SiteHeader() {
             return (
               <a
                 key={id}
-                href={`#${id}`}
+                href={sectionHref(id)}
                 aria-current={isActive ? "true" : undefined}
                 className={cn(
                   "rounded-md px-3 py-2 text-sm transition-colors",
@@ -95,7 +101,7 @@ export function SiteHeader() {
                   return (
                     <SheetClose asChild key={id}>
                       <a
-                        href={`#${id}`}
+                        href={sectionHref(id)}
                         aria-current={isActive ? "true" : undefined}
                         className={cn(
                           "rounded-md px-3 py-2.5 text-base transition-colors",

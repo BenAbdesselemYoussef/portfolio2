@@ -24,6 +24,14 @@ export const experienceSchema = z.object({
 
 export const projectDomainSchema = z.enum(["ai", "saas", "real-time", "data", "frontend"]);
 
+// A structured, localized case study — rendered on /projects/[slug].
+export const caseStudySchema = z.object({
+  problem: localizedTextSchema,
+  approach: localizedTextSchema,
+  architecture: z.array(localizedTextSchema).min(1), // bullet points
+  outcome: localizedTextSchema,
+});
+
 export const projectSchema = z.object({
   slug: z.string().regex(/^[a-z0-9-]+$/, "Lowercase, dash-separated slug"),
   title: localizedTextSchema,
@@ -32,6 +40,7 @@ export const projectSchema = z.object({
   stack: z.array(z.string().min(1)),
   links: z.object({ demo: z.url().optional(), repo: z.url().optional() }).optional(),
   featured: z.boolean().optional(),
+  caseStudy: caseStudySchema.optional(),
 });
 
 export const skillGroupSchema = z.object({

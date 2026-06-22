@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 
@@ -7,6 +8,7 @@ import { GitHubIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { projects } from "@/content/projects";
 import type { ProjectDomain } from "@/content/types";
+import { Link } from "@/i18n/navigation";
 import { localize } from "@/i18n/routing";
 import { projectDomains } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -84,14 +86,24 @@ export function ProjectsGrid() {
               ))}
             </ul>
 
-            {project.links?.repo ? (
-              <Button asChild variant="outline" size="sm" className="mt-6 w-fit">
-                <a href={project.links.repo} target="_blank" rel="noopener noreferrer">
-                  <GitHubIcon className="size-4" />
-                  {t("viewRepo")}
-                </a>
-              </Button>
-            ) : null}
+            <div className="mt-auto flex flex-wrap items-center gap-3 pt-6">
+              {project.caseStudy ? (
+                <Button asChild size="sm">
+                  <Link href={`/projects/${project.slug}`}>
+                    {t("readCaseStudy")}
+                    <ArrowRight className="size-4 rtl:rotate-180" />
+                  </Link>
+                </Button>
+              ) : null}
+              {project.links?.repo ? (
+                <Button asChild variant="outline" size="sm">
+                  <a href={project.links.repo} target="_blank" rel="noopener noreferrer">
+                    <GitHubIcon className="size-4" />
+                    {t("viewRepo")}
+                  </a>
+                </Button>
+              ) : null}
+            </div>
           </article>
         ))}
       </div>

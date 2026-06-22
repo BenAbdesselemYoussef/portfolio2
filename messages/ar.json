@@ -44,6 +44,8 @@
     "title": "مشاريع مختارة",
     "filterAll": "الكل",
     "viewRepo": "عرض الكود",
+    "viewDemo": "عرض حيّ",
+    "readCaseStudy": "اقرأ دراسة الحالة",
     "domains": {
       "ai": "ذكاء اصطناعي",
       "saas": "SaaS",
@@ -51,6 +53,13 @@
       "data": "البيانات",
       "frontend": "الواجهة الأمامية"
     }
+  },
+  "CaseStudy": {
+    "back": "العودة إلى المشاريع",
+    "problem": "المشكلة",
+    "approach": "المقاربة",
+    "architecture": "البنية",
+    "outcome": "النتيجة"
   },
   "Skills": {
     "eyebrow": "03 / المهارات",

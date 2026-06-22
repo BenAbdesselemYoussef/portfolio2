@@ -44,6 +44,8 @@
     "title": "Selected Projects",
     "filterAll": "All",
     "viewRepo": "View code",
+    "viewDemo": "Live demo",
+    "readCaseStudy": "Read case study",
     "domains": {
       "ai": "AI",
       "saas": "SaaS",
@@ -51,6 +53,13 @@
       "data": "Data",
       "frontend": "Frontend"
     }
+  },
+  "CaseStudy": {
+    "back": "Back to projects",
+    "problem": "Problem",
+    "approach": "Approach",
+    "architecture": "Architecture",
+    "outcome": "Outcome"
   },
   "Skills": {
     "eyebrow": "03 / Skills",

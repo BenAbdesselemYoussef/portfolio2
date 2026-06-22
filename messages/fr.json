@@ -44,6 +44,8 @@
     "title": "Projets sélectionnés",
     "filterAll": "Tous",
     "viewRepo": "Voir le code",
+    "viewDemo": "Démo en ligne",
+    "readCaseStudy": "Lire l'étude de cas",
     "domains": {
       "ai": "IA",
       "saas": "SaaS",
@@ -51,6 +53,13 @@
       "data": "Données",
       "frontend": "Frontend"
     }
+  },
+  "CaseStudy": {
+    "back": "Retour aux projets",
+    "problem": "Problème",
+    "approach": "Approche",
+    "architecture": "Architecture",
+    "outcome": "Résultat"
   },
   "Skills": {
     "eyebrow": "03 / Compétences",
