@@ -72,6 +72,28 @@
     "present": "Présent",
     "visitWebsite": "Visiter le site"
   },
+  "Contact": {
+    "eyebrow": "04 / Contact",
+    "title": "Me contacter",
+    "body": "Un projet, un poste ou une question ? Envoyez un message et je vous répondrai.",
+    "nameLabel": "Nom",
+    "namePlaceholder": "Votre nom",
+    "emailLabel": "E-mail",
+    "emailPlaceholder": "vous@exemple.com",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Dites-m'en un peu plus…",
+    "submit": "Envoyer",
+    "success": "Merci — votre message est en route. Je réponds bientôt.",
+    "error": "Une erreur est survenue. Réessayez, ou écrivez-moi directement.",
+    "errors": {
+      "name_required": "Veuillez saisir votre nom.",
+      "name_long": "Ce nom est trop long.",
+      "email_required": "Veuillez saisir votre e-mail.",
+      "email_invalid": "Veuillez saisir un e-mail valide.",
+      "message_short": "Votre message est un peu court.",
+      "message_long": "Votre message est trop long."
+    }
+  },
   "Footer": {
     "role": "Développeur Full-Stack",
     "email": "E-mail",

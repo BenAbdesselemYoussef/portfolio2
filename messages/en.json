@@ -72,6 +72,28 @@
     "present": "Present",
     "visitWebsite": "Visit website"
   },
+  "Contact": {
+    "eyebrow": "04 / Contact",
+    "title": "Get in touch",
+    "body": "Have a project, a role, or a question? Send a message and I'll get back to you.",
+    "nameLabel": "Name",
+    "namePlaceholder": "Your name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "you@example.com",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Tell me a bit about it…",
+    "submit": "Send message",
+    "success": "Thanks — your message is on its way. I'll reply soon.",
+    "error": "Something went wrong. Please try again, or email me directly.",
+    "errors": {
+      "name_required": "Please enter your name.",
+      "name_long": "That name is too long.",
+      "email_required": "Please enter your email.",
+      "email_invalid": "Please enter a valid email.",
+      "message_short": "Your message is a little short.",
+      "message_long": "Your message is too long."
+    }
+  },
   "Footer": {
     "role": "Full-Stack Developer",
     "email": "Email",

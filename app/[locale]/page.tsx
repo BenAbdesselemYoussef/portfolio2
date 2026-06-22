@@ -1,8 +1,8 @@
 import { setRequestLocale } from "next-intl/server";
 
+import { ContactForm } from "@/components/sections/contactForm";
 import { ExperienceTimeline } from "@/components/sections/experienceTimeline";
 import { Hero } from "@/components/sections/hero";
-import { PlaceholderSection } from "@/components/sections/placeholderSection";
 import { ProjectsGrid } from "@/components/sections/projectsGrid";
 import { SkillsMatrix } from "@/components/sections/skillsMatrix";
 
@@ -16,7 +16,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <ProjectsGrid />
       <ExperienceTimeline />
       <SkillsMatrix />
-      <PlaceholderSection id="contact" />
+      <ContactForm />
     </main>
   );
 }
