@@ -7,7 +7,7 @@ import "../globals.css";
 import { SiteFooter } from "@/components/common/siteFooter";
 import { SiteHeader } from "@/components/common/siteHeader";
 import { ThemeProvider } from "@/components/themeProvider";
-import { geistMono, geistSans } from "@/lib/fonts";
+import { cairo, geistMono, geistSans } from "@/lib/fonts";
 import { getDirection, routing } from "@/i18n/routing";
 
 export function generateStaticParams() {
@@ -47,7 +47,7 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={dir}
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${cairo.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col">
