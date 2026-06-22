@@ -72,6 +72,28 @@
     "present": "حتى الآن",
     "visitWebsite": "زيارة الموقع"
   },
+  "Contact": {
+    "eyebrow": "04 / تواصل",
+    "title": "تواصل معي",
+    "body": "لديك مشروع أو وظيفة أو سؤال؟ أرسل رسالة وسأعود إليك.",
+    "nameLabel": "الاسم",
+    "namePlaceholder": "اسمك",
+    "emailLabel": "البريد الإلكتروني",
+    "emailPlaceholder": "you@example.com",
+    "messageLabel": "الرسالة",
+    "messagePlaceholder": "أخبرني قليلًا عنها…",
+    "submit": "إرسال الرسالة",
+    "success": "شكرًا — رسالتك في طريقها. سأردّ قريبًا.",
+    "error": "حدث خطأ ما. حاول مجددًا أو راسلني مباشرة.",
+    "errors": {
+      "name_required": "يرجى إدخال اسمك.",
+      "name_long": "هذا الاسم طويل جدًا.",
+      "email_required": "يرجى إدخال بريدك الإلكتروني.",
+      "email_invalid": "يرجى إدخال بريد إلكتروني صالح.",
+      "message_short": "رسالتك قصيرة قليلًا.",
+      "message_long": "رسالتك طويلة جدًا."
+    }
+  },
   "Footer": {
     "role": "مطوّر ويب متكامل",
     "email": "البريد الإلكتروني",
