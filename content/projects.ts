@@ -52,6 +52,40 @@ export const projects = validateCollection(
           fr: "Un espace de travail unifié couvrant documents, tableaux, diagrammes, partage et étiquetage par IA dans une seule app — supprimant les changements de contexte permanents entre outils spécialisés.",
           ar: "مساحة عمل موحَّدة تغطّي المستندات واللوحات والمخططات والمشاركة والوسم بالذكاء الاصطناعي في تطبيق واحد — ممّا يلغي التنقّل المستمر بين الأدوات المتخصّصة.",
         },
+        gallery: [
+          {
+            image: "/projects/collabcanvas/board.png",
+            caption: {
+              en: "A Kanban board for planning — drag-and-drop cards with labels and assignees, right alongside documents in the same workspace.",
+              fr: "Un tableau Kanban pour la planification — cartes en glisser-déposer avec étiquettes et assignés, aux côtés des documents dans le même espace.",
+              ar: "لوحة كانبان للتخطيط — بطاقات بالسحب والإفلات مع وسوم ومكلَّفين، جنبًا إلى جنب مع المستندات في المساحة نفسها.",
+            },
+          },
+          {
+            image: "/projects/collabcanvas/diagram.png",
+            caption: {
+              en: "A pannable, zoomable diagram canvas for mapping out systems and flows.",
+              fr: "Un canevas de diagrammes déplaçable et zoomable pour cartographier systèmes et flux.",
+              ar: "لوحة مخططات قابلة للتحريك والتكبير لرسم الأنظمة والتدفّقات.",
+            },
+          },
+          {
+            image: "/projects/collabcanvas/share.png",
+            caption: {
+              en: "Sharing a document: invite people, set per-member roles, and choose link-access modes.",
+              fr: "Partager un document : inviter des personnes, définir les rôles par membre et choisir les modes d'accès par lien.",
+              ar: "مشاركة مستند: دعوة الأشخاص، وتحديد الأدوار لكل عضو، واختيار أوضاع الوصول عبر الرابط.",
+            },
+          },
+          {
+            image: "/projects/collabcanvas/ai-tags.png",
+            caption: {
+              en: "AI tagging reads a document's content and suggests relevant tags to add with one click.",
+              fr: "L'étiquetage par IA lit le contenu d'un document et suggère des étiquettes pertinentes à ajouter en un clic.",
+              ar: "يقرأ الوسم بالذكاء الاصطناعي محتوى المستند ويقترح وسومًا مناسبة تُضاف بنقرة واحدة.",
+            },
+          },
+        ],
       },
     },
     {
@@ -100,6 +134,40 @@ export const projects = validateCollection(
           fr: "Un traqueur de tickets cohérent où tableau, liste, backlog et tableau de bord partagent les mêmes tickets — pour planifier un sprint et voir sa santé d'un coup d'œil.",
           ar: "أداة تتبّع متماسكة تشترك فيها اللوحة والقائمة وقائمة الأعمال ولوحة البيانات في المهام ذاتها — لتخطيط السباق ورؤية حالته بنظرة واحدة.",
         },
+        gallery: [
+          {
+            image: "/projects/project-zenith/issue.png",
+            caption: {
+              en: "The issue detail panel — description, fields, a subtask checklist with progress, and a comment thread.",
+              fr: "Le panneau de détail d'un ticket — description, champs, liste de sous-tâches avec progression et fil de commentaires.",
+              ar: "لوحة تفاصيل المهمة — الوصف والحقول وقائمة مهام فرعية بمؤشّر تقدّم وسلسلة تعليقات.",
+            },
+          },
+          {
+            image: "/projects/project-zenith/list.png",
+            caption: {
+              en: "The list view groups issues by status for a dense, scannable overview.",
+              fr: "La vue liste regroupe les tickets par statut pour un aperçu dense et lisible.",
+              ar: "يجمّع عرض القائمة المهام حسب الحالة لنظرة كثيفة وسهلة المسح.",
+            },
+          },
+          {
+            image: "/projects/project-zenith/backlog.png",
+            caption: {
+              en: "The backlog organizes issues into sprints with goals and point totals.",
+              fr: "Le backlog organise les tickets en sprints avec objectifs et totaux de points.",
+              ar: "تنظّم قائمة الأعمال المهام ضمن سباقات بأهداف وإجماليات نقاط.",
+            },
+          },
+          {
+            image: "/projects/project-zenith/dashboard.png",
+            caption: {
+              en: "The reporting dashboard: status breakdown, sprint velocity, burndown, and workload by assignee.",
+              fr: "Le tableau de bord : répartition des statuts, vélocité de sprint, burndown et charge par assigné.",
+              ar: "لوحة البيانات: توزيع الحالات، وسرعة السباق، ومخطّط الإنجاز، وعبء العمل لكل مكلَّف.",
+            },
+          },
+        ],
       },
     },
     {
@@ -148,6 +216,40 @@ export const projects = validateCollection(
           fr: "Une vue claire du jour de tournage où l'équipe sait toujours le prochain plan, ce qui est fait et si les essentiels sont couverts — sans tableur.",
           ar: "رؤية واضحة ليوم التصوير يعرف فيها الطاقم دائمًا اللقطة التالية، وما أُنجز، وهل غُطّيت الأساسيات — دون جداول بيانات.",
         },
+        gallery: [
+          {
+            image: "/projects/shotmaker/shot.png",
+            caption: {
+              en: "A shot's detail — status and priority controls, fields, and a light AI assist to draft a description.",
+              fr: "Le détail d'un plan — contrôles de statut et de priorité, champs, et une assistance IA légère pour rédiger une description.",
+              ar: "تفاصيل اللقطة — التحكّم بالحالة والأولوية، والحقول، ومساعدة ذكاء اصطناعي خفيفة لصياغة الوصف.",
+            },
+          },
+          {
+            image: "/projects/shotmaker/list.png",
+            caption: {
+              en: "The list view shows the shooting order with each shot's priority and status at a glance.",
+              fr: "La vue liste montre l'ordre de tournage avec la priorité et le statut de chaque plan d'un coup d'œil.",
+              ar: "يُظهر عرض القائمة ترتيب التصوير مع أولوية كل لقطة وحالتها بنظرة واحدة.",
+            },
+          },
+          {
+            image: "/projects/shotmaker/ready.png",
+            caption: {
+              en: "When every essential shot is filmed, the session is marked 'ready to wrap' — even with optional shots still open.",
+              fr: "Quand tous les plans essentiels sont tournés, la session passe à « prête » — même s'il reste des plans optionnels.",
+              ar: "عند تصوير كل اللقطات الأساسية، تُعلَّم الجلسة «جاهزة للإنهاء» — حتى لو بقيت لقطات اختيارية.",
+            },
+          },
+          {
+            image: "/projects/shotmaker/session.png",
+            caption: {
+              en: "Each shoot is its own session, color-treated, with its own shot list and total runtime.",
+              fr: "Chaque tournage est sa propre session, avec son traitement de couleur, sa liste de plans et sa durée totale.",
+              ar: "كل تصوير جلسة مستقلّة بمعالجة لونية خاصة وقائمة لقطات ومدّة إجمالية.",
+            },
+          },
+        ],
       },
     },
     {
@@ -196,6 +298,40 @@ export const projects = validateCollection(
           fr: "Un seul endroit pour gérer les contacts, faire avancer les opportunités et ne jamais manquer une relance — avec un tableau de bord montrant valeur du pipeline et retards d'un coup d'œil.",
           ar: "مكان واحد لإدارة جهات الاتصال ودفع الصفقات عبر المسار وعدم تفويت أي متابعة — مع لوحة تُظهر قيمة المسار والأعمال المتأخّرة بنظرة واحدة.",
         },
+        gallery: [
+          {
+            image: "/projects/streamline-crm/pipeline.png",
+            caption: {
+              en: "The lead pipeline — drag deals across stages, with per-stage deal counts and value totals.",
+              fr: "Le pipeline de leads — glissez les opportunités entre les étapes, avec compteurs et valeurs totales par étape.",
+              ar: "مسار الفرص — اسحب الصفقات بين المراحل، مع عدد الصفقات وإجمالي القيمة لكل مرحلة.",
+            },
+          },
+          {
+            image: "/projects/streamline-crm/contacts.png",
+            caption: {
+              en: "A searchable contact directory of customers, leads, partners, and vendors.",
+              fr: "Un annuaire de contacts cherchable : clients, leads, partenaires et fournisseurs.",
+              ar: "دليل جهات اتصال قابل للبحث: عملاء وفرص وشركاء وموردون.",
+            },
+          },
+          {
+            image: "/projects/streamline-crm/tasks.png",
+            caption: {
+              en: "The task center flags overdue work and tracks due dates, priority, and status.",
+              fr: "Le centre de tâches signale les retards et suit échéances, priorité et statut.",
+              ar: "يُبرز مركز المهام الأعمال المتأخّرة ويتابع تواريخ الاستحقاق والأولوية والحالة.",
+            },
+          },
+          {
+            image: "/projects/streamline-crm/detail.png",
+            caption: {
+              en: "Every record has a detail panel with Tiptap rich-text notes, file attachments, and a chronological activity log.",
+              fr: "Chaque fiche a un panneau de détail avec notes enrichies Tiptap, pièces jointes et journal d'activité chronologique.",
+              ar: "لكل سجلّ لوحة تفاصيل بملاحظات Tiptap الغنية ومرفقات ملفات وسجلّ نشاط زمني.",
+            },
+          },
+        ],
       },
     },
   ],

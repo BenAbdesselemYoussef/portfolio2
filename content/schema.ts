@@ -24,12 +24,19 @@ export const experienceSchema = z.object({
 
 export const projectDomainSchema = z.enum(["ai", "saas", "real-time", "data", "frontend"]);
 
+// A captioned screenshot in a case study's walkthrough gallery.
+export const galleryItemSchema = z.object({
+  image: z.string(), // path under /public
+  caption: localizedTextSchema,
+});
+
 // A structured, localized case study — rendered on /projects/[slug].
 export const caseStudySchema = z.object({
   problem: localizedTextSchema,
   approach: localizedTextSchema,
   architecture: z.array(localizedTextSchema).min(1), // bullet points
   outcome: localizedTextSchema,
+  gallery: z.array(galleryItemSchema).optional(), // captioned screenshots
 });
 
 export const projectSchema = z.object({

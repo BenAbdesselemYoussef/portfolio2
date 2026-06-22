@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
@@ -104,6 +105,32 @@ export function CaseStudy({ project }: { project: Project }) {
           <p className="text-pretty">{localize(study.outcome, locale)}</p>
         </Section>
       </div>
+
+      {study.gallery && study.gallery.length > 0 ? (
+        <section className="mt-12">
+          <h2 className="text-muted-foreground font-mono text-xs tracking-[0.2em] uppercase">
+            {t("walkthrough")}
+          </h2>
+          <div className="mt-5 space-y-8">
+            {study.gallery.map((shot) => (
+              <figure key={shot.image}>
+                <div className="border-border/60 bg-card/40 relative aspect-[16/10] w-full overflow-hidden rounded-xl border">
+                  <Image
+                    src={shot.image}
+                    alt={localize(shot.caption, locale)}
+                    fill
+                    sizes="(min-width: 768px) 768px, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="text-muted-foreground mt-3 text-sm text-pretty">
+                  {localize(shot.caption, locale)}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      ) : null}
     </article>
   );
 }
