@@ -4,8 +4,8 @@ import { Menu } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
-import { LanguageSwitcher } from "@/components/common/language-switcher";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { LanguageSwitcher } from "@/components/common/languageSwitcher";
+import { ThemeToggle } from "@/components/themeToggle";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -18,10 +18,9 @@ import {
 import { useActiveSection } from "@/hooks/use-active-section";
 import { Link } from "@/i18n/navigation";
 import { getDirection } from "@/i18n/routing";
-import { navLinks, siteConfig } from "@/lib/site";
+import { sectionIds } from "@/lib/constants";
+import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
-
-const sectionIds = navLinks.map((link) => link.id);
 
 export function SiteHeader() {
   const t = useTranslations("Nav");
@@ -57,19 +56,19 @@ export function SiteHeader() {
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-1 md:flex" aria-label={t("primary")}>
-          {navLinks.map((link) => {
-            const isActive = active === link.id;
+          {sectionIds.map((id) => {
+            const isActive = active === id;
             return (
               <a
-                key={link.id}
-                href={`#${link.id}`}
+                key={id}
+                href={`#${id}`}
                 aria-current={isActive ? "true" : undefined}
                 className={cn(
                   "rounded-md px-3 py-2 text-sm transition-colors",
                   isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground",
                 )}
               >
-                {t(link.id)}
+                {t(id)}
               </a>
             );
           })}
@@ -91,12 +90,12 @@ export function SiteHeader() {
                 <SheetTitle className="text-start font-mono text-sm">{t("menuTitle")}</SheetTitle>
               </SheetHeader>
               <nav className="flex flex-col px-4" aria-label={t("mobile")}>
-                {navLinks.map((link) => {
-                  const isActive = active === link.id;
+                {sectionIds.map((id) => {
+                  const isActive = active === id;
                   return (
-                    <SheetClose asChild key={link.id}>
+                    <SheetClose asChild key={id}>
                       <a
-                        href={`#${link.id}`}
+                        href={`#${id}`}
                         aria-current={isActive ? "true" : undefined}
                         className={cn(
                           "rounded-md px-3 py-2.5 text-base transition-colors",
@@ -105,7 +104,7 @@ export function SiteHeader() {
                             : "text-muted-foreground hover:text-foreground hover:bg-accent",
                         )}
                       >
-                        {t(link.id)}
+                        {t(id)}
                       </a>
                     </SheetClose>
                   );

@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 
-type SectionId = "work" | "about" | "contact";
+import type { SectionId } from "@/lib/types";
 
 // Temporary stand-in for the real Work/About/Contact sections (issues #12–16).
 // Kept as its own component so the page stays a thin shell.

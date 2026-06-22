@@ -11,6 +11,3 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/in/youssef-ben-abdesselem-3249a519a/",
   },
 } as const;
-
-// `id` doubles as the section anchor and the translation key (Nav namespace).
-export const navLinks = [{ id: "work" }, { id: "about" }, { id: "contact" }] as const;

@@ -1,8 +1,7 @@
 import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
-
-const stack = ["Next.js", "TypeScript", "Node.js", "Python", "LLMs", "AWS"];
+import { heroStack } from "@/lib/constants";
 
 export function Hero() {
   const t = useTranslations("Hero");
@@ -34,7 +33,7 @@ export function Hero() {
       </div>
 
       <ul className="text-muted-foreground mt-10 flex flex-wrap gap-x-3 gap-y-2 font-mono text-xs">
-        {stack.map((item) => (
+        {heroStack.map((item) => (
           <li key={item} className="border-border rounded-md border px-2.5 py-1">
             {item}
           </li>

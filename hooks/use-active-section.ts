@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
  * Tracks which in-page section is currently in view using IntersectionObserver,
  * so the nav can highlight the active link. Returns the active section id.
  */
-export function useActiveSection(ids: string[]): string | null {
+export function useActiveSection(ids: readonly string[]): string | null {
   const key = ids.join(",");
   const [active, setActive] = useState<string | null>(ids[0] ?? null);
 

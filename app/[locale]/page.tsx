@@ -1,9 +1,8 @@
 import { setRequestLocale } from "next-intl/server";
 
 import { Hero } from "@/components/sections/hero";
-import { PlaceholderSection } from "@/components/sections/placeholder-section";
-
-const sections = ["work", "about", "contact"] as const;
+import { PlaceholderSection } from "@/components/sections/placeholderSection";
+import { sectionIds } from "@/lib/constants";
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -12,7 +11,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   return (
     <main className="mx-auto w-full max-w-5xl px-6">
       <Hero />
-      {sections.map((id) => (
+      {sectionIds.map((id) => (
         <PlaceholderSection key={id} id={id} />
       ))}
     </main>
