@@ -2,7 +2,7 @@
 
 import { ArrowRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { useState } from "react";
+import { useSyncExternalStore } from "react";
 
 import { GitHubIcon } from "@/components/icons";
 import { ProjectImage } from "@/components/projectImage";
@@ -16,16 +16,41 @@ import { cn } from "@/lib/utils";
 
 type Filter = ProjectDomain | "all";
 
+// Only the domains that actually appear in the data get a filter chip.
+const domains = projectDomains.filter((d) => projects.some((p) => p.domain.includes(d)));
+const filters: Filter[] = ["all", ...domains];
+
+const QUERY_KEY = "domain";
+
+// The active filter lives in the URL (?domain=…) so it's shareable and
+// history-aware. We subscribe to it via useSyncExternalStore — SSR renders
+// "all", then the client reconciles to whatever the URL says.
+function filterFromUrl(): Filter {
+  const d = new URLSearchParams(window.location.search).get(QUERY_KEY);
+  return d && (domains as string[]).includes(d) ? (d as Filter) : "all";
+}
+
+function subscribe(onChange: () => void) {
+  window.addEventListener("popstate", onChange);
+  return () => window.removeEventListener("popstate", onChange);
+}
+
+const getServerFilter = (): Filter => "all";
+
 export function ProjectsGrid() {
   const t = useTranslations("Projects");
   const locale = useLocale();
-  const [filter, setFilter] = useState<Filter>("all");
+  const filter = useSyncExternalStore(subscribe, filterFromUrl, getServerFilter);
 
-  // Only show filters for domains that actually appear in the data.
-  const domains = projectDomains.filter((d) => projects.some((p) => p.domain.includes(d)));
+  const select = (f: Filter) => {
+    const url = new URL(window.location.href);
+    if (f === "all") url.searchParams.delete(QUERY_KEY);
+    else url.searchParams.set(QUERY_KEY, f);
+    window.history.pushState(null, "", url);
+    window.dispatchEvent(new Event("popstate")); // pushState doesn't notify; do it ourselves
+  };
+
   const filtered = filter === "all" ? projects : projects.filter((p) => p.domain.includes(filter));
-
-  const filters: Filter[] = ["all", ...domains];
 
   return (
     <section id="work" className="border-border/60 scroll-mt-16 border-t py-24">
@@ -42,7 +67,7 @@ export function ProjectsGrid() {
               key={f}
               type="button"
               aria-pressed={isActive}
-              onClick={() => setFilter(f)}
+              onClick={() => select(f)}
               className={cn(
                 "focus-visible:ring-ring cursor-pointer rounded-full border px-3 py-1 font-mono text-xs transition-colors outline-none focus-visible:ring-2",
                 isActive
