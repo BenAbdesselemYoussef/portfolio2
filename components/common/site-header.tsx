@@ -1,9 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { Menu } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
+import { LanguageSwitcher } from "@/components/common/language-switcher";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,15 +16,22 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { useActiveSection } from "@/hooks/use-active-section";
-import { cn } from "@/lib/utils";
+import { Link } from "@/i18n/navigation";
+import { getDirection } from "@/i18n/routing";
 import { navLinks, siteConfig } from "@/lib/site";
+import { cn } from "@/lib/utils";
 
-const sectionIds = navLinks.map((link) => link.href.replace("#", ""));
+const sectionIds = navLinks.map((link) => link.id);
 
 export function SiteHeader() {
+  const t = useTranslations("Nav");
+  const locale = useLocale();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const active = useActiveSection(sectionIds);
+
+  // Drawer enters from the inline-end side (flips for RTL).
+  const sheetSide = getDirection(locale) === "rtl" ? "left" : "right";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -48,46 +56,47 @@ export function SiteHeader() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-1 md:flex" aria-label={t("primary")}>
           {navLinks.map((link) => {
-            const isActive = active === link.href.replace("#", "");
+            const isActive = active === link.id;
             return (
               <a
-                key={link.href}
-                href={link.href}
+                key={link.id}
+                href={`#${link.id}`}
                 aria-current={isActive ? "true" : undefined}
                 className={cn(
                   "rounded-md px-3 py-2 text-sm transition-colors",
                   isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground",
                 )}
               >
-                {link.label}
+                {t(link.id)}
               </a>
             );
           })}
         </nav>
 
         <div className="flex items-center gap-1">
+          <LanguageSwitcher />
           <ThemeToggle />
 
           {/* Mobile drawer */}
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden" aria-label="Open menu">
+              <Button variant="ghost" size="icon" className="md:hidden" aria-label={t("openMenu")}>
                 <Menu className="size-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-72">
+            <SheetContent side={sheetSide} className="w-72">
               <SheetHeader>
-                <SheetTitle className="text-left font-mono text-sm">Navigation</SheetTitle>
+                <SheetTitle className="text-start font-mono text-sm">{t("menuTitle")}</SheetTitle>
               </SheetHeader>
-              <nav className="flex flex-col px-4" aria-label="Mobile">
+              <nav className="flex flex-col px-4" aria-label={t("mobile")}>
                 {navLinks.map((link) => {
-                  const isActive = active === link.href.replace("#", "");
+                  const isActive = active === link.id;
                   return (
-                    <SheetClose asChild key={link.href}>
+                    <SheetClose asChild key={link.id}>
                       <a
-                        href={link.href}
+                        href={`#${link.id}`}
                         aria-current={isActive ? "true" : undefined}
                         className={cn(
                           "rounded-md px-3 py-2.5 text-base transition-colors",
@@ -96,7 +105,7 @@ export function SiteHeader() {
                             : "text-muted-foreground hover:text-foreground hover:bg-accent",
                         )}
                       >
-                        {link.label}
+                        {t(link.id)}
                       </a>
                     </SheetClose>
                   );

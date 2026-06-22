@@ -1,53 +1,42 @@
+import { getTranslations, setRequestLocale } from "next-intl/server";
+
 import { Button } from "@/components/ui/button";
 
 const stack = ["Next.js", "TypeScript", "Node.js", "Python", "LLMs", "AWS"];
+const sectionKeys = ["work", "about", "contact"] as const;
 
-const placeholders = [
-  {
-    id: "work",
-    eyebrow: "01 / Work",
-    title: "Selected Projects",
-    body: "Case studies are on the way — real-time platforms, multi-tenant SaaS, and AI tooling.",
-  },
-  {
-    id: "about",
-    eyebrow: "02 / About",
-    title: "Background",
-    body: "Four years across streaming, audit, and AI products. The full story lands here next.",
-  },
-  {
-    id: "contact",
-    eyebrow: "03 / Contact",
-    title: "Get in Touch",
-    body: "A contact form with real delivery is coming. For now, the footer links work.",
-  },
-];
+export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
 
-export default function Home() {
+  const tMeta = await getTranslations("Metadata");
+  const t = await getTranslations("Hero");
+  const ts = await getTranslations("Sections");
+
   return (
     <main className="mx-auto w-full max-w-5xl px-6">
       {/* Hero */}
       <section className="flex min-h-[calc(100svh-4rem)] flex-col justify-center py-24">
         <p className="text-muted-foreground font-mono text-xs tracking-[0.2em] uppercase">
-          Full-Stack Engineer · Tunisia
+          {t("eyebrow")}
         </p>
 
         <h1 className="mt-5 text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
-          Youssef Ben Abdesselem
+          {tMeta("name")}
         </h1>
 
         <p className="text-muted-foreground mt-5 max-w-xl text-lg leading-relaxed text-pretty">
-          I build scalable, real-time, and data-driven systems — from multi-tenant SaaS platforms to
-          tools that blend software with <span className="text-brand font-medium">AI</span> in
-          practical ways.
+          {t.rich("description", {
+            ai: (chunks) => <span className="text-brand font-medium">{chunks}</span>,
+          })}
         </p>
 
         <div className="mt-8 flex flex-wrap gap-3">
           <Button size="lg" asChild>
-            <a href="#work">View Work</a>
+            <a href="#work">{t("viewWork")}</a>
           </Button>
           <Button size="lg" variant="outline" asChild>
-            <a href="#contact">Get in Touch</a>
+            <a href="#contact">{t("getInTouch")}</a>
           </Button>
         </div>
 
@@ -61,19 +50,15 @@ export default function Home() {
       </section>
 
       {/* Placeholder sections — filled in by issues #12–16 */}
-      {placeholders.map((section) => (
-        <section
-          key={section.id}
-          id={section.id}
-          className="border-border/60 scroll-mt-16 border-t py-24"
-        >
+      {sectionKeys.map((key) => (
+        <section key={key} id={key} className="border-border/60 scroll-mt-16 border-t py-24">
           <p className="text-muted-foreground font-mono text-xs tracking-[0.2em] uppercase">
-            {section.eyebrow}
+            {ts(`${key}Eyebrow`)}
           </p>
           <h2 className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">
-            {section.title}
+            {ts(`${key}Title`)}
           </h2>
-          <p className="text-muted-foreground mt-3 max-w-xl text-pretty">{section.body}</p>
+          <p className="text-muted-foreground mt-3 max-w-xl text-pretty">{ts(`${key}Body`)}</p>
         </section>
       ))}
     </main>

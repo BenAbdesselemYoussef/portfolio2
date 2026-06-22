@@ -1,0 +1,50 @@
+{
+  "Metadata": {
+    "name": "Youssef Ben Abdesselem",
+    "title": "Youssef Ben Abdesselem — Full-Stack Developer",
+    "description": "Full-Stack Engineer with 4+ years building scalable, real-time, and AI-powered systems."
+  },
+  "Nav": {
+    "work": "Work",
+    "about": "About",
+    "contact": "Contact",
+    "menuTitle": "Navigation",
+    "openMenu": "Open menu",
+    "primary": "Primary",
+    "mobile": "Mobile"
+  },
+  "Theme": {
+    "toggle": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "Language": {
+    "label": "Language"
+  },
+  "Hero": {
+    "eyebrow": "Full-Stack Engineer · Tunisia",
+    "description": "I build scalable, real-time, and data-driven systems — from multi-tenant SaaS platforms to tools that blend software with <ai>AI</ai> in practical ways.",
+    "viewWork": "View Work",
+    "getInTouch": "Get in Touch"
+  },
+  "Sections": {
+    "workEyebrow": "01 / Work",
+    "workTitle": "Selected Projects",
+    "workBody": "Case studies are on the way — real-time platforms, multi-tenant SaaS, and AI tooling.",
+    "aboutEyebrow": "02 / About",
+    "aboutTitle": "Background",
+    "aboutBody": "Four years across streaming, audit, and AI products. The full story lands here next.",
+    "contactEyebrow": "03 / Contact",
+    "contactTitle": "Get in Touch",
+    "contactBody": "A contact form with real delivery is coming. For now, the footer links work."
+  },
+  "Footer": {
+    "role": "Full-Stack Developer",
+    "email": "Email",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "resume": "Résumé",
+    "socials": "Social links"
+  }
+}

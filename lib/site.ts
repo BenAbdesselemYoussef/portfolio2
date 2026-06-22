@@ -12,8 +12,5 @@ export const siteConfig = {
   },
 } as const;
 
-export const navLinks = [
-  { href: "#work", label: "Work" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
-] as const;
+// `id` doubles as the section anchor and the translation key (Nav namespace).
+export const navLinks = [{ id: "work" }, { id: "about" }, { id: "contact" }] as const;
