@@ -12,6 +12,8 @@ export const localizedTextSchema = z.object({
 export const experienceSchema = z.object({
   company: z.string().min(1), // proper noun — not localized
   logo: z.string().optional(), // path to a monochrome SVG under /public
+  website: z.url().optional(),
+  description: localizedTextSchema.optional(), // short company blurb shown in the logo modal
   role: localizedTextSchema,
   location: localizedTextSchema.optional(),
   start: isoMonth,

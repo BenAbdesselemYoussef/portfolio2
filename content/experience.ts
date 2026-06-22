@@ -8,6 +8,11 @@ export const experience = validateCollection(
     {
       company: "Planisphere Systems",
       logo: "/logos/planisphere.svg",
+      description: {
+        en: "Software company building AI-powered tools and data-driven trading platforms.",
+        fr: "Société de logiciels développant des outils basés sur l'IA et des plateformes de trading axées sur les données.",
+        ar: "شركة برمجيات تبني أدوات مدعومة بالذكاء الاصطناعي ومنصّات تداول معتمدة على البيانات.",
+      },
       role: {
         en: "Full-Stack Developer",
         fr: "Développeur Full-Stack",
@@ -56,6 +61,12 @@ export const experience = validateCollection(
     {
       company: "Forvis Mazars",
       logo: "/logos/forvis-mazars.svg",
+      website: "https://www.forvismazars.com",
+      description: {
+        en: "A global network providing audit, tax, and advisory services.",
+        fr: "Un réseau mondial de services d'audit, de fiscalité et de conseil.",
+        ar: "شبكة عالمية تقدّم خدمات التدقيق والضرائب والاستشارات.",
+      },
       role: {
         en: "Full-Stack Developer",
         fr: "Développeur Full-Stack",
@@ -108,6 +119,11 @@ export const experience = validateCollection(
     {
       company: "Acoba",
       logo: "/logos/acoba.svg",
+      description: {
+        en: "A technology company building video-streaming and large-scale camera-monitoring platforms.",
+        fr: "Une entreprise technologique développant des plateformes de streaming vidéo et de supervision de caméras à grande échelle.",
+        ar: "شركة تقنية تبني منصّات لبثّ الفيديو ومراقبة الكاميرات على نطاق واسع.",
+      },
       role: {
         en: "Frontend Web Developer",
         fr: "Développeur Web Frontend",
@@ -161,6 +177,11 @@ export const experience = validateCollection(
     {
       company: "Open Eyes Consulting",
       logo: "/logos/open-eyes.svg",
+      description: {
+        en: "A Tunisian software development and consulting company.",
+        fr: "Une société tunisienne de développement logiciel et de conseil.",
+        ar: "شركة تونسية لتطوير البرمجيات والاستشارات.",
+      },
       role: {
         en: "Full-Stack Developer",
         fr: "Développeur Full-Stack",

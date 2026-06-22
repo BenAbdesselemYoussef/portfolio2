@@ -1,6 +1,6 @@
 import { useLocale, useTranslations } from "next-intl";
 
-import { CompanyLogo } from "@/components/companyLogo";
+import { CompanyDialog } from "@/components/companyDialog";
 import { experience } from "@/content/experience";
 import { localize } from "@/i18n/routing";
 
@@ -25,13 +25,12 @@ export function ExperienceTimeline() {
       <ol className="mt-10 space-y-10">
         {experience.map((job) => (
           <li key={`${job.company}-${job.start}`} className="flex gap-4 sm:gap-5">
-            <div className="bg-card border-border text-foreground/75 grid size-12 shrink-0 place-items-center rounded-lg border">
-              {job.logo ? (
-                <CompanyLogo src={job.logo} label={job.company} className="size-7" />
-              ) : (
-                <span className="bg-brand size-2 rounded-full" />
-              )}
-            </div>
+            <CompanyDialog
+              company={job.company}
+              logo={job.logo}
+              description={job.description ? localize(job.description, locale) : undefined}
+              website={job.website}
+            />
 
             <div className="min-w-0 flex-1">
               <p className="text-muted-foreground font-mono text-xs">

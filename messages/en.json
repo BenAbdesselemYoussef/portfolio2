@@ -42,7 +42,8 @@
   "Experience": {
     "eyebrow": "02 / Experience",
     "title": "Experience",
-    "present": "Present"
+    "present": "Present",
+    "visitWebsite": "Visit website"
   },
   "Footer": {
     "role": "Full-Stack Developer",

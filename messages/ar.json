@@ -42,7 +42,8 @@
   "Experience": {
     "eyebrow": "02 / الخبرة",
     "title": "الخبرة",
-    "present": "حتى الآن"
+    "present": "حتى الآن",
+    "visitWebsite": "زيارة الموقع"
   },
   "Footer": {
     "role": "مطوّر ويب متكامل",
