@@ -1,0 +1,50 @@
+{
+  "Metadata": {
+    "name": "Youssef Ben Abdesselem",
+    "title": "Youssef Ben Abdesselem — Développeur Full-Stack",
+    "description": "Ingénieur Full-Stack avec plus de 4 ans d'expérience dans la création de systèmes évolutifs, en temps réel et alimentés par l'IA."
+  },
+  "Nav": {
+    "work": "Projets",
+    "about": "À propos",
+    "contact": "Contact",
+    "menuTitle": "Navigation",
+    "openMenu": "Ouvrir le menu",
+    "primary": "Principale",
+    "mobile": "Mobile"
+  },
+  "Theme": {
+    "toggle": "Changer de thème",
+    "light": "Clair",
+    "dark": "Sombre",
+    "system": "Système"
+  },
+  "Language": {
+    "label": "Langue"
+  },
+  "Hero": {
+    "eyebrow": "Ingénieur Full-Stack · Tunisie",
+    "description": "Je conçois des systèmes évolutifs, en temps réel et orientés données — des plateformes SaaS multi-tenant aux outils qui mêlent logiciel et <ai>IA</ai> de façon concrète.",
+    "viewWork": "Voir les projets",
+    "getInTouch": "Me contacter"
+  },
+  "Sections": {
+    "workEyebrow": "01 / Projets",
+    "workTitle": "Projets sélectionnés",
+    "workBody": "Les études de cas arrivent — plateformes en temps réel, SaaS multi-tenant et outils d'IA.",
+    "aboutEyebrow": "02 / À propos",
+    "aboutTitle": "Parcours",
+    "aboutBody": "Quatre ans entre le streaming, l'audit et les produits d'IA. L'histoire complète arrive ici.",
+    "contactEyebrow": "03 / Contact",
+    "contactTitle": "Me contacter",
+    "contactBody": "Un formulaire de contact avec envoi réel arrive bientôt. En attendant, les liens du pied de page fonctionnent."
+  },
+  "Footer": {
+    "role": "Développeur Full-Stack",
+    "email": "E-mail",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "resume": "CV",
+    "socials": "Réseaux sociaux"
+  }
+}

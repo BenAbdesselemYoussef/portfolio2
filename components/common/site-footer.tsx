@@ -1,16 +1,18 @@
 import { FileText, Mail } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { siteConfig } from "@/lib/site";
 
 const socials = [
-  { href: `mailto:${siteConfig.email}`, label: "Email", icon: Mail, external: false },
-  { href: siteConfig.links.github, label: "GitHub", icon: GitHubIcon, external: true },
-  { href: siteConfig.links.linkedin, label: "LinkedIn", icon: LinkedInIcon, external: true },
-  { href: siteConfig.resumeHref, label: "Résumé", icon: FileText, external: true },
-];
+  { key: "email", href: `mailto:${siteConfig.email}`, icon: Mail, external: false },
+  { key: "github", href: siteConfig.links.github, icon: GitHubIcon, external: true },
+  { key: "linkedin", href: siteConfig.links.linkedin, icon: LinkedInIcon, external: true },
+  { key: "resume", href: siteConfig.resumeHref, icon: FileText, external: true },
+] as const;
 
 export function SiteFooter() {
+  const t = useTranslations("Footer");
   const year = new Date().getFullYear();
 
   return (
@@ -19,23 +21,26 @@ export function SiteFooter() {
         <div>
           <p className="text-sm font-medium">{siteConfig.name}</p>
           <p className="text-muted-foreground font-mono text-xs">
-            {siteConfig.role} · © {year}
+            {t("role")} · © {year}
           </p>
         </div>
 
-        <nav className="flex items-center gap-1" aria-label="Social links">
-          {socials.map(({ href, label, icon: Icon, external }) => (
-            <a
-              key={label}
-              href={href}
-              aria-label={label}
-              title={label}
-              className="text-muted-foreground hover:text-foreground hover:bg-accent inline-flex size-9 items-center justify-center rounded-md transition-colors"
-              {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-            >
-              <Icon className="size-4" />
-            </a>
-          ))}
+        <nav className="flex items-center gap-1" aria-label={t("socials")}>
+          {socials.map(({ key, href, icon: Icon, external }) => {
+            const label = t(key);
+            return (
+              <a
+                key={key}
+                href={href}
+                aria-label={label}
+                title={label}
+                className="text-muted-foreground hover:text-foreground hover:bg-accent inline-flex size-9 items-center justify-center rounded-md transition-colors"
+                {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              >
+                <Icon className="size-4" />
+              </a>
+            );
+          })}
         </nav>
       </div>
     </footer>
