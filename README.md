@@ -63,14 +63,14 @@ This repository is my **personal portfolio website**: the place that tells that 
 
 A portfolio for a full-stack engineer should itself be a small but complete demonstration of craft. The goals:
 
-| Goal | How it's met |
-| --- | --- |
-| **Prove front-end depth** | Server Components, streaming, animation, responsive design, dark mode, a11y. |
-| **Prove full-stack reach** | A real serverless API route for the contact form (validation → email delivery). |
-| **Be genuinely fast** | Static-first rendering, image optimization, near-zero client JS on content pages. |
-| **Be maintainable** | Content lives in typed data files / MDX — adding a project is a one-file change. |
-| **Be discoverable** | First-class SEO: per-page metadata, sitemap, robots, JSON-LD, dynamic OG images. |
-| **Be measurable** | Lighthouse budgets in CI; analytics on Core Web Vitals. |
+| Goal                       | How it's met                                                                      |
+| -------------------------- | --------------------------------------------------------------------------------- |
+| **Prove front-end depth**  | Server Components, streaming, animation, responsive design, dark mode, a11y.      |
+| **Prove full-stack reach** | A real serverless API route for the contact form (validation → email delivery).   |
+| **Be genuinely fast**      | Static-first rendering, image optimization, near-zero client JS on content pages. |
+| **Be maintainable**        | Content lives in typed data files / MDX — adding a project is a one-file change.  |
+| **Be discoverable**        | First-class SEO: per-page metadata, sitemap, robots, JSON-LD, dynamic OG images.  |
+| **Be measurable**          | Lighthouse budgets in CI; analytics on Core Web Vitals.                           |
 
 ---
 
@@ -79,34 +79,37 @@ A portfolio for a full-stack engineer should itself be a small but complete demo
 Chosen to mirror the stack I work in daily and to keep the site **static-first, type-safe, and easy to extend**.
 
 ### Core
-| Layer | Choice | Rationale |
-| --- | --- | --- |
-| **Framework** | [Next.js 16](https://nextjs.org/) (App Router, RSC, Turbopack) | SEO + performance via Server Components and static generation; the framework I use most. |
-| **Language** | [TypeScript 5](https://www.typescriptlang.org/) | End-to-end type safety from content to UI. |
-| **Styling** | [Tailwind CSS 4](https://tailwindcss.com/) | Utility-first, design-token driven, tiny production CSS. |
-| **UI primitives** | [shadcn/ui](https://ui.shadcn.com/) + [Radix UI](https://www.radix-ui.com/) | Accessible, unstyled primitives I own and can theme. |
-| **Animation** | [Motion](https://motion.dev/) (Framer Motion) | Scroll-linked reveals and micro-interactions, respecting reduced-motion. |
-| **Icons** | [lucide-react](https://lucide.dev/) | Consistent, tree-shakeable icon set. |
+
+| Layer             | Choice                                                                      | Rationale                                                                                |
+| ----------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| **Framework**     | [Next.js 16](https://nextjs.org/) (App Router, RSC, Turbopack)              | SEO + performance via Server Components and static generation; the framework I use most. |
+| **Language**      | [TypeScript 5](https://www.typescriptlang.org/)                             | End-to-end type safety from content to UI.                                               |
+| **Styling**       | [Tailwind CSS 4](https://tailwindcss.com/)                                  | Utility-first, design-token driven, tiny production CSS.                                 |
+| **UI primitives** | [shadcn/ui](https://ui.shadcn.com/) + [Radix UI](https://www.radix-ui.com/) | Accessible, unstyled primitives I own and can theme.                                     |
+| **Animation**     | [Motion](https://motion.dev/) (Framer Motion)                               | Scroll-linked reveals and micro-interactions, respecting reduced-motion.                 |
+| **Icons**         | [lucide-react](https://lucide.dev/)                                         | Consistent, tree-shakeable icon set.                                                     |
 
 ### Content & Forms
-| Concern | Choice | Rationale |
-| --- | --- | --- |
-| **Project case studies** | [MDX](https://mdxjs.com/) | Long-form content with embedded React components. |
-| **Structured content** | Typed TS data modules (`/content`) | No CMS to host; content is versioned with the code and fully typed. |
-| **Form handling** | [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/) | Shared validation schema on client **and** server. |
-| **Email delivery** | [Resend](https://resend.com/) via a Route Handler | Contact form → transactional email, no backend server to run. |
-| **Theming** | [next-themes](https://github.com/pacocoursey/next-themes) | Flash-free dark/light with system preference. |
+
+| Concern                  | Choice                                                                    | Rationale                                                           |
+| ------------------------ | ------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| **Project case studies** | [MDX](https://mdxjs.com/)                                                 | Long-form content with embedded React components.                   |
+| **Structured content**   | Typed TS data modules (`/content`)                                        | No CMS to host; content is versioned with the code and fully typed. |
+| **Form handling**        | [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/) | Shared validation schema on client **and** server.                  |
+| **Email delivery**       | [Resend](https://resend.com/) via a Route Handler                         | Contact form → transactional email, no backend server to run.       |
+| **Theming**              | [next-themes](https://github.com/pacocoursey/next-themes)                 | Flash-free dark/light with system preference.                       |
 
 ### Platform & Tooling
-| Concern | Choice |
-| --- | --- |
-| **Hosting** | [Vercel](https://vercel.com/) (Edge network, preview deployments per PR) |
-| **Analytics** | Vercel Analytics + Speed Insights (Core Web Vitals) |
-| **Linting / formatting** | ESLint + Prettier |
-| **Unit tests** | [Vitest](https://vitest.dev/) + Testing Library |
-| **E2E tests** | [Playwright](https://playwright.dev/) |
-| **CI/CD** | GitHub Actions (lint → typecheck → test → build → Lighthouse budget) |
-| **Package manager** | pnpm |
+
+| Concern                  | Choice                                                                   |
+| ------------------------ | ------------------------------------------------------------------------ |
+| **Hosting**              | [Vercel](https://vercel.com/) (Edge network, preview deployments per PR) |
+| **Analytics**            | Vercel Analytics + Speed Insights (Core Web Vitals)                      |
+| **Linting / formatting** | ESLint + Prettier                                                        |
+| **Unit tests**           | [Vitest](https://vitest.dev/) + Testing Library                          |
+| **E2E tests**            | [Playwright](https://playwright.dev/)                                    |
+| **CI/CD**                | GitHub Actions (lint → typecheck → test → build → Lighthouse budget)     |
+| **Package manager**      | pnpm                                                                     |
 
 > **Stack rationale in one line:** Next.js + TypeScript + Tailwind gives a static-first, SEO-friendly, type-safe foundation; the only "backend" is a single serverless route for the contact form — everything else is rendered ahead of time.
 
@@ -148,6 +151,7 @@ flowchart TD
 ```
 
 **Key decisions**
+
 - Theme is applied by a tiny inline script **before first paint** → no dark-mode flash.
 - Content sections are Server Components (zero client JS); only the nav, theme toggle, and animations hydrate.
 - Next.js prefetches in-viewport links when the network is idle for instant subsequent navigation.
@@ -170,6 +174,7 @@ stateDiagram-v2
 ```
 
 **Key decisions**
+
 - Mobile menu is a focus-trapped dialog; `Esc` and backdrop click close it; body scroll locks while open.
 - Active link reflects the section currently in view (IntersectionObserver), keeping the URL hash in sync for shareable deep links.
 - `scroll-behavior` respects `prefers-reduced-motion`.
@@ -195,6 +200,7 @@ flowchart LR
 ```
 
 **Key decisions**
+
 - Filters are encoded in the **URL query string** → shareable, back-button friendly, SSR-consistent.
 - Filtering is pure client-side over already-loaded data (small dataset) → zero latency.
 - Card enter/exit uses layout animations; respects reduced-motion by snapping instead of animating.
@@ -219,6 +225,7 @@ flowchart TD
 ```
 
 **Key decisions**
+
 - All case studies are **statically generated** (`generateStaticParams`) → instant loads, perfect SEO.
 - MDX lets a case study embed live components (diagrams, galleries) while staying content-first.
 - Each project page emits its own metadata + OG image for rich link previews.
@@ -258,6 +265,7 @@ sequenceDiagram
 ```
 
 **Key decisions**
+
 - **One Zod schema** is the source of truth for both client and server validation — no drift.
 - **Honeypot field + per-IP rate limiting** stop the most common bot spam without a CAPTCHA.
 - The server **never trusts the client**: it re-validates before calling Resend.
@@ -278,6 +286,7 @@ flowchart LR
 ```
 
 **Key decisions**
+
 - The résumé PDF is **version-controlled in the repo** (`/resume`), so the live download always matches what's committed.
 - Both view and download paths fire an analytics event so I can see engagement.
 
@@ -302,6 +311,7 @@ stateDiagram-v2
 ```
 
 **Key decisions**
+
 - Default is **system preference**; an explicit choice persists across visits.
 - The pre-paint inline script eliminates the dark-mode flash (FOUC).
 
@@ -322,6 +332,7 @@ flowchart TD
 ```
 
 **Key decisions**
+
 - Per-route metadata + JSON-LD structured data make the site machine-readable.
 - Dynamic OG images render a branded card per page/project for strong link previews.
 
@@ -365,6 +376,7 @@ flowchart TB
 ```
 
 **Principles**
+
 - **Static-first**: every content page is prerendered. The only dynamic server code is the contact route and OG image generation.
 - **Content as code**: projects, experience, and skills are typed modules; case studies are MDX. Adding content = a PR, not a CMS login.
 - **Progressive enhancement**: pages are useful as static HTML; interactivity layers on top.
@@ -381,10 +393,10 @@ export type Experience = {
   company: string;
   role: string;
   location?: string;
-  start: string;          // ISO month, e.g. "2025-09"
+  start: string; // ISO month, e.g. "2025-09"
   end: string | "present";
-  highlights: string[];   // impact-oriented bullet points
-  stack: string[];        // technologies used
+  highlights: string[]; // impact-oriented bullet points
+  stack: string[]; // technologies used
 };
 
 export type Project = {
@@ -448,6 +460,7 @@ portfolio2/
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - **Node.js ≥ 20** (this repo uses [fnm](https://github.com/Schniz/fnm) locally)
 - **pnpm** (`npm i -g pnpm`)
 
@@ -476,11 +489,11 @@ pnpm dev
 
 Environment variables (see `.env.example`):
 
-| Variable | Required | Description |
-| --- | --- | --- |
-| `RESEND_API_KEY` | Yes (for contact form) | Server-side API key for sending email via Resend. |
-| `CONTACT_TO_EMAIL` | Yes | Destination inbox for contact submissions. |
-| `NEXT_PUBLIC_SITE_URL` | Yes | Canonical site URL, used for SEO, sitemap, and OG images. |
+| Variable               | Required               | Description                                               |
+| ---------------------- | ---------------------- | --------------------------------------------------------- |
+| `RESEND_API_KEY`       | Yes (for contact form) | Server-side API key for sending email via Resend.         |
+| `CONTACT_TO_EMAIL`     | Yes                    | Destination inbox for contact submissions.                |
+| `NEXT_PUBLIC_SITE_URL` | Yes                    | Canonical site URL, used for SEO, sitemap, and OG images. |
 
 > All secrets are server-only. Anything exposed to the browser is explicitly prefixed `NEXT_PUBLIC_`.
 
@@ -488,16 +501,16 @@ Environment variables (see `.env.example`):
 
 ## 📜 Scripts
 
-| Command | Description |
-| --- | --- |
-| `pnpm dev` | Start the dev server with hot reload. |
-| `pnpm build` | Production build (static generation). |
-| `pnpm start` | Serve the production build locally. |
-| `pnpm lint` | ESLint. |
-| `pnpm typecheck` | `tsc --noEmit`. |
-| `pnpm test` | Vitest unit tests. |
-| `pnpm test:e2e` | Playwright end-to-end tests. |
-| `pnpm format` | Prettier. |
+| Command          | Description                           |
+| ---------------- | ------------------------------------- |
+| `pnpm dev`       | Start the dev server with hot reload. |
+| `pnpm build`     | Production build (static generation). |
+| `pnpm start`     | Serve the production build locally.   |
+| `pnpm lint`      | ESLint.                               |
+| `pnpm typecheck` | `tsc --noEmit`.                       |
+| `pnpm test`      | Vitest unit tests.                    |
+| `pnpm test:e2e`  | Playwright end-to-end tests.          |
+| `pnpm format`    | Prettier.                             |
 
 ---
 
@@ -527,14 +540,14 @@ flowchart LR
 
 ## ♿ Accessibility & Performance Budgets
 
-| Metric | Target |
-| --- | --- |
-| Lighthouse Performance | ≥ 95 |
-| Lighthouse Accessibility | 100 |
-| Lighthouse SEO | 100 |
+| Metric                   | Target           |
+| ------------------------ | ---------------- |
+| Lighthouse Performance   | ≥ 95             |
+| Lighthouse Accessibility | 100              |
+| Lighthouse SEO           | 100              |
 | Largest Contentful Paint | < 1.5s (fast 4G) |
-| Cumulative Layout Shift | < 0.05 |
-| Total Blocking Time | < 150ms |
+| Cumulative Layout Shift  | < 0.05           |
+| Total Blocking Time      | < 150ms          |
 
 Accessibility commitments: semantic landmarks, visible focus states, full keyboard operability, `prefers-reduced-motion` support, and AA color contrast in both themes.
 
