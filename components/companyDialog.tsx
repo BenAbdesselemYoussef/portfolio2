@@ -40,25 +40,32 @@ export function CompanyDialog({ company, logo, description, website }: CompanyDi
         </button>
       </DialogTrigger>
 
-      <DialogContent className="sm:max-w-md">
-        <DialogHeader className="items-center text-center sm:items-start sm:text-start">
+      <DialogContent className="sm:max-w-lg">
+        <div className="flex items-stretch gap-5">
           {logo ? (
-            <div className="bg-card border-border text-foreground mb-3 grid size-16 place-items-center rounded-xl border">
-              <CompanyLogo src={logo} label={company} className="size-10" />
+            <div className="bg-card border-border text-foreground grid size-28 shrink-0 place-items-center rounded-xl border">
+              <CompanyLogo src={logo} label={company} className="size-20" />
             </div>
           ) : null}
-          <DialogTitle>{company}</DialogTitle>
-          {description ? <DialogDescription>{description}</DialogDescription> : null}
-        </DialogHeader>
 
-        {website ? (
-          <Button asChild variant="outline" className="w-full sm:w-fit">
-            <a href={website} target="_blank" rel="noopener noreferrer">
-              {t("visitWebsite")}
-              <ExternalLink className="size-4" />
-            </a>
-          </Button>
-        ) : null}
+          {logo ? <div className="bg-border w-px self-stretch" aria-hidden /> : null}
+
+          <div className="min-w-0 flex-1">
+            <DialogHeader className="text-start">
+              <DialogTitle>{company}</DialogTitle>
+              {description ? <DialogDescription>{description}</DialogDescription> : null}
+            </DialogHeader>
+
+            {website ? (
+              <Button asChild variant="outline" className="mt-4 w-full sm:w-fit">
+                <a href={website} target="_blank" rel="noopener noreferrer">
+                  {t("visitWebsite")}
+                  <ExternalLink className="size-4" />
+                </a>
+              </Button>
+            ) : null}
+          </div>
+        </div>
       </DialogContent>
     </Dialog>
   );
