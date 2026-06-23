@@ -1,3 +1,11 @@
+// Production origin, no trailing slash. Set NEXT_PUBLIC_SITE_URL at deploy time
+// (e.g. the Render URL); falls back to localhost for local dev. Drives
+// metadataBase, canonical/hreflang links, the sitemap, and absolute OG URLs.
+export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(
+  /\/$/,
+  "",
+);
+
 export const siteConfig = {
   name: "Youssef Ben Abdesselem",
   role: "Full-Stack Developer",
