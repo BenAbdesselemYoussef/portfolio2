@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
@@ -7,12 +7,21 @@ import "../globals.css";
 import { SiteFooter } from "@/components/common/siteFooter";
 import { SiteHeader } from "@/components/common/siteHeader";
 import { ThemeProvider } from "@/components/themeProvider";
-import { cairo, geistMono, geistSans } from "@/lib/fonts";
 import { getDirection, routing } from "@/i18n/routing";
+import { cairo, geistMono, geistSans } from "@/lib/fonts";
+import { alternatesFor, socialMetadata } from "@/lib/seo";
+import { siteUrl } from "@/lib/site";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#0e1014" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+  ],
+};
 
 export async function generateMetadata({
   params,
@@ -22,8 +31,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Metadata" });
   return {
+    metadataBase: new URL(siteUrl),
     title: { default: t("title"), template: `%s — ${t("name")}` },
     description: t("description"),
+    alternates: alternatesFor(locale),
+    robots: { index: true, follow: true },
+    ...socialMetadata({ locale, title: t("title"), description: t("description") }),
   };
 }
 
